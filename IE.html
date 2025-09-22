@@ -4,86 +4,173 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Unsupported browser</title>
+  <title>Browser not supported</title>
+
+  <!-- Pretendard ExtraBold (via CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background-color: #f9f9f9;
+      margin: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 800;
+      background-color: #fff;
       color: #222;
       text-align: center;
       padding: 60px 20px;
-      margin: 0;
+      position: relative;
+    }
+
+    header {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      width: 120px; /* 영역 크기 */
+      height: auto;
+    }
+
+    header img {
+      width: 100%;
+      height: auto;
+      user-select: none;
+      display: block;
     }
 
     h1 {
-      font-size: 24px;
+      font-size: 30px;
       margin-bottom: 20px;
+      color: #ff0000de;
+      letter-spacing: -0.02em;
     }
 
     p {
+      font-weight: 600;
       font-size: 16px;
       line-height: 1.6;
       margin-bottom: 40px;
+      color: #555;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .browser-options {
-      display: table;
-      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      max-width: 600px;
+      margin: 0 auto 40px;
     }
 
     .browser {
-      display: inline-block;
-      width: 140px;
-      margin: 10px;
-      padding: 10px;
-      background-color: #fff;
-      border: 1px solid #ccc;
+      background-color: #f8f8f8;
+      border-radius: 14px;
+      padding: 30px 25px;
+      width: 170px;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      user-select: none;
+    }
+
+    .browser:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
 
     .browser img {
-      width: 64px;
-      height: 64px;
-      margin-bottom: 10px;
+      width: 72px;
+      height: 72px;
+      margin-bottom: 20px;
+      object-fit: contain;
     }
 
     .browser-name {
-      font-weight: bold;
-      margin-bottom: 8px;
-      font-size: 14px;
+      font-size: 18px;
+      color: #000000;
+      margin-bottom: 18px;
+      letter-spacing: -0.015em;
     }
 
     .download-btn {
-      display: inline-block;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: bold;
-      color: #fff;
-      background-color: #0078D7;
+      padding: 10px 20px;
+      border-radius: 26px;
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      background-color: #000000;
       border: none;
-      border-radius: 4px;
       text-decoration: none;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 3px 8px rgb(49, 48, 48);
+      transition: background-color 0.3s ease;
+      user-select: none;
     }
 
     .download-btn:hover {
-      background-color: #005bb5;
+      background-color: #3f55d6;
+      box-shadow: 0 6px 14px rgba(12, 12, 12, 0.75);
+    }
+
+    @media (max-width: 520px) {
+      .browser-options {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .browser {
+        width: 100%;
+        max-width: 320px;
+        padding: 25px 15px;
+      }
+      .browser img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 16px;
+      }
+      h1 {
+        font-size: 26px;
+      }
+      p {
+        font-size: 15px;
+        max-width: 100%;
+      }
+      header {
+        width: 90px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>The browser currently running is Internet Explorer.</h1>
-  <p>Internet Explorer is no longer supported.<br />Please install Chrome, Edge, or Firefox browsers.</p>
+
+  <h1>Internet Explorer is no longer supported.</h1>
+  <p>The browser you are currently connected to has ended support.<br />Please install one of the recommended browsers below.</p>
+  <p>Connected browser: Internet Explorer</p>
 
   <div class="browser-options">
     <div class="browser">
+      <img src="https://www.google.com/chrome/static/images/chrome-logo.svg" alt="Chrome Logo" />
       <div class="browser-name">Chrome</div>
-      <a class="download-btn" href="https://www.google.com/intl/en_us/chrome/" target="_blank">Download</a>
+      <a class="download-btn" href="https://www.google.co.kr/intl/en_us/chrome/" target="_blank" rel="noopener noreferrer">Install</a>
     </div>
     <div class="browser">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Microsoft_Edge_logo_%282019%29.svg" alt="Edge Logo" />
       <div class="browser-name">Edge</div>
-      <a class="download-btn" href="https://www.microsoft.com/edge" target="_blank">Download</a>
+      <a class="download-btn" href="https://www.microsoft.com/en-us/edge/?icid=SSM_AS_Promo_Other_Edge&form=MA13FJ" target="_blank" rel="noopener noreferrer">Install</a>
     </div>
     <div class="browser">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg" alt="Firefox Logo" />
       <div class="browser-name">Firefox</div>
-      <a class="download-btn" href="https://www.mozilla.org/firefox/new/" target="_blank">Download</a>
+      <a class="download-btn" href="https://www.firefox.com/en-US/?redirect_source=mozilla-org&utm_campaign=SET_DEFAULT_BROWSER" target="_blank" rel="noopener noreferrer">Install</a>
     </div>
   </div>
 </body>
